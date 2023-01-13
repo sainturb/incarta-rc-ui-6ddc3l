@@ -1,0 +1,39 @@
+<div class="row col-12">
+  <div class="col">
+    <label for="dob-dd" class="">Date of joining:</label>
+    <div>
+      <select id="dob-dd" [(ngModel)]="day">
+        <option *ngFor="let i of days" [value]="i">{{ i }}</option>
+      </select>
+
+      <select class="dob-mmm" [(ngModel)]="month">
+        <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+      </select>
+      <select class="dob-yyyy" [(ngModel)]="year">
+        <option *ngFor="let y of years">{{ y }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row col-12">
+  <div class="col-6 col">
+    <label for="role">Role: </label>
+    <select id="role" [(ngModel)]="role">
+      <option *ngFor="let r of roles" [value]="r.number">
+        <my-role [value]="r.number" [text]="r.name"></my-role>
+      </option>
+    </select>
+  </div>
+
+  <div class="col-6 col">
+    <label for="yoe">Experience</label>
+    <input
+      type="range"
+      step="5"
+      [value]="role"
+      [(ngModel)]="role"
+      [max]="roles[0].number"
+      min="0"
+    />
+  </div>
+</div>
